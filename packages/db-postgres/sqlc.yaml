@@ -1,0 +1,11 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    schema: "./migrate/"
+    queries: "./sql/"
+    gen:
+      go:
+        package: "dbpostgres"
+        out: "./gen"
+        emit_json_tags: true
+        sql_package: "pgx/v5"
