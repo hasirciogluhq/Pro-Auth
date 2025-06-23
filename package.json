@@ -1,0 +1,17 @@
+{
+  "name": "pro-auth",
+  "version": "1.0.0",
+  "description": "Pro-Auth is a modern authentication product for your business",
+  "scripts": {},
+  "keywords": [],
+  "author": {
+    "name": "Mustafa Hasırcıoğlu",
+    "email": "mhasirciogli@gmail.com",
+    "url": "https://hasirciogli.com"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.1",
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  }
+}

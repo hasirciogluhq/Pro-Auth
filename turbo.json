@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "dist/**/*.map"]
+    },
+    "dev": {
+      "cache": false,
+      "dependsOn": ["^dev"],
+      "outputs": ["dist/**", "dist/**/*.map"]
+    }
+  }
+}
