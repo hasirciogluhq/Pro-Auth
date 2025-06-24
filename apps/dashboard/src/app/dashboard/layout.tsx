@@ -19,6 +19,13 @@ export default function DashboardLayout({
     }
   }, [isAuthenticated, isLoading, router]);
 
+  // Redirect to dashboard if authenticated and on login page
+  useEffect(() => {
+    if (!isLoading && isAuthenticated && window.location.pathname === '/login') {
+      router.push('/dashboard');
+    }
+  }, [isAuthenticated, isLoading, router]);
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">

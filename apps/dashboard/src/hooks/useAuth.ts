@@ -1,15 +1,24 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { loginStart, loginSuccess, loginFailure, logout } from '@/store/slices/authSlice';
-import { authService } from '@/services/authService';
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import {
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  logout,
+} from "@/store/slices/authSlice";
+import { authService } from "@/services/authService";
 
 export const useAuth = () => {
   const dispatch = useAppDispatch();
-  const { user, isAuthenticated, isLoading, error } = useAppSelector(state => state.auth);
+  const router = useRouter();
+  const { user, isAuthenticated, isLoading, error } = useAppSelector(
+    (state) => state.auth
+  );
 
   // Session kontrolü
   const { data: sessionUser, isLoading: isCheckingSession } = useQuery({
-    queryKey: ['session'],
+    queryKey: ["session"],
     queryFn: authService.checkSession,
     retry: false,
     staleTime: 5 * 60 * 1000, // 5 dakika
@@ -22,8 +31,9 @@ export const useAuth = () => {
       dispatch(loginStart());
     },
     onSuccess: (user) => {
-      localStorage.setItem('auth_token', 'mock_token');
+      localStorage.setItem("auth_token", "mock_token");
       dispatch(loginSuccess(user));
+      router.push("/dashboard");
     },
     onError: (error: Error) => {
       dispatch(loginFailure(error.message));
@@ -35,6 +45,7 @@ export const useAuth = () => {
     mutationFn: authService.logout,
     onSuccess: () => {
       dispatch(logout());
+      router.push("/login");
     },
   });
 
@@ -55,4 +66,4 @@ export const useAuth = () => {
     logout: handleLogout,
     isLoggingOut: logoutMutation.isPending,
   };
-}; 
+};

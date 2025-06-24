@@ -10,13 +10,13 @@ interface User {
   role: string;
 }
 
-// Mock API - gerçek projede backend endpoint'leri kullanılacak
+// Mock API - in real project, backend endpoints will be used
 export const authService = {
   async login(credentials: LoginCredentials): Promise<User> {
-    // Simüle edilmiş API çağrısı
+    // Simulated API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Mock kullanıcı doğrulama
+    // Mock user validation
     if (credentials.username === 'admin' && credentials.password === 'admin123') {
       return {
         id: '1',
@@ -26,11 +26,11 @@ export const authService = {
       };
     }
     
-    throw new Error('Geçersiz kullanıcı adı veya şifre');
+    throw new Error('Invalid username or password');
   },
 
   async checkSession(): Promise<User | null> {
-    // Simüle edilmiş session kontrolü
+    // Simulated session check
     await new Promise(resolve => setTimeout(resolve, 500));
     
     const token = localStorage.getItem('auth_token');
@@ -47,7 +47,7 @@ export const authService = {
   },
 
   async logout(): Promise<void> {
-    // Simüle edilmiş logout
+    // Simulated logout
     await new Promise(resolve => setTimeout(resolve, 300));
     localStorage.removeItem('auth_token');
   }

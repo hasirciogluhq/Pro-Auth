@@ -1,0 +1,5 @@
+Ek olarak audit log sayfası da eklenmesi gerekiyor.
+
+All Namespaces kısmı ise bu tarzda değil anmespaces kısmı relams gibi organizasyon gibi olacak kanka environment mantıklı oldu evet ama bunu düsgün oturtman lazım kankaa.
+
+ek olarak identities kısmı boka sarı identities kısmı user'lara attach edilmiş email, google hesapları veya boşta duran hesaplar olacak gibidüşün. Phone de bir identity olacak. email da bir identity. User boş bir obje olacak identity login olunca atteched user sessiona alınacak kanka. Öyle düşün oauth dan gelen github hesabı user'a ekli ama user'da mail yok o zaman oauth user olacak emailsiz direk oauth github la girecek olay bu kadar baist sen çok yanlış anladın. Bu keycloak gibi auth tool unun admin paneli kanka bu paneli design ederken ona göre design et.
