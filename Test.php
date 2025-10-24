@@ -4,10 +4,10 @@
 require_once __DIR__ . "/vendor/autoload.php";
 
 
-use Hasirciogli\ProAuth\Config\DatabaseConfig;
-use Hasirciogli\ProAuth\Models\LanguageModel;
-use Hasirciogli\SessionWrapper\Session;
-use Hasirciogli\ProAuth\Models\HashModel;
+use Hasirciogluhq\ProAuth\Config\DatabaseConfig;
+use Hasirciogluhq\ProAuth\Models\LanguageModel;
+use Hasirciogluhq\SessionWrapper\Session;
+use Hasirciogluhq\ProAuth\Models\HashModel;
 
 if ($_POST) {
     $ClientId = $_POST["client_id"] ?? "";
@@ -28,7 +28,7 @@ if ($_POST) {
 
 $AuthorizationToken = $_GET["authorizationtoken"] ?? null;
 
-$StaticImages = "http://public-cdn.hasirciogli.com";
+$StaticImages = "http://public-cdn.hasirciogluhq.com";
 
 $Phrases = LanguageModel::cfun()->GetLanguagePhrases($_GET["lang"] ?? "tr");
 
