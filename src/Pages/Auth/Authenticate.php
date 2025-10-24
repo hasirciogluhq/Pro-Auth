@@ -1,13 +1,13 @@
 <?php
-use Hasirciogli\ProAuth\Config\DatabaseConfig;
-use Hasirciogli\ProAuth\Models\LanguageModel;
-use Hasirciogli\SessionWrapper\Session;
+use Hasirciogluhq\ProAuth\Config\DatabaseConfig;
+use Hasirciogluhq\ProAuth\Models\LanguageModel;
+use Hasirciogluhq\SessionWrapper\Session;
 
 $ClientId = $_GET["client_id"] ?? "";
 $Hash = $_GET["hash"] ?? "";
 $RedirectTo = $_GET["redirect_to"] ?? "";
 
-$StaticImages = "http://public-cdn.hasirciogli.com";
+$StaticImages = "http://public-cdn.hasirciogluhq.com";
 
 $Phrases = LanguageModel::cfun()->GetLanguagePhrases($_GET["lang"] ?? "tr");
 
@@ -108,7 +108,7 @@ $CsrfToken = $Session->Get("csrf-token");
             <form class="flex flex-col w-full h-full gap-4 mt-4 p-4 transition-colors"
                 onsubmit="return (e) => {e.preventDefault();return false;}">
                 <input id="email" required type="email" class="rounded bg-transparent w-full text-sm transition-colors"
-                    value="mhasirciogli@gmail.com" placeholder="<?php echo $Phrases["auth_email_placeholder"]; ?>">
+                    value="hello@hasirciogluhq.com" placeholder="<?php echo $Phrases["auth_email_placeholder"]; ?>">
                 <input id="password" required type="password"
                     class="rounded bg-transparent w-full text-sm transition-colors"
                     placeholder="<?php echo $Phrases["auth_password_placeholder"]; ?>">
